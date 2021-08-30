@@ -12,6 +12,5 @@ export function count(a: number, b: number, op: Operation): number {
 }
 
 export function assertNever(val: never): never {
-	console.error(val);
 	throw new Error("value should be never");
 }
