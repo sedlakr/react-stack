@@ -29,7 +29,7 @@ function App() {
 		<div className="App">
 			<header className="App-header">
 				<img src={logo} className="App-logo" alt="logo"/>
-				<p>Hello Interactive on stack Vite + Typescript + React + Axios!</p>
+				<p>Hello from FE dev stack Vite + Typescript + React + Axios + Jest!</p>
 				<p>
 					<button type="button" onClick={() => setCount((count) => count + 1)}>
 						count is: {count}
