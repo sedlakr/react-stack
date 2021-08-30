@@ -9,7 +9,9 @@
     "testJunit": "jest --reporters=jest-junit",
     "testCoverage": "jest --collect-coverage",
     "testJunitCoverage": "jest --reporters=jest-junit --collect-coverage",
-    "testWatch": "jest --watch"
+    "testWatch": "jest --watch",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
   },
   "dependencies": {
     "axios": "^0.21.1",
@@ -17,12 +19,18 @@
     "react-dom": "^17.0.0"
   },
   "devDependencies": {
+    "@babel/core": "^7.15.0",
+    "@storybook/addon-actions": "^6.3.7",
+    "@storybook/addon-essentials": "^6.3.7",
+    "@storybook/addon-links": "^6.3.7",
+    "@storybook/react": "^6.3.7",
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^12.0.0",
     "@types/jest": "^27.0.1",
     "@types/react": "^17.0.0",
     "@types/react-dom": "^17.0.0",
     "@vitejs/plugin-react-refresh": "^1.3.1",
+    "babel-loader": "^8.2.2",
     "jest": "^27.1.0",
     "jest-junit": "^12.2.0",
     "ts-jest": "^27.0.5",
