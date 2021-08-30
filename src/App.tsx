@@ -2,19 +2,8 @@ import React, { useEffect, useState } from 'react'
 import logo from './logo.svg'
 import './App.css'
 import { fetchPing, TPingData } from "./model/ping";
+import { PingInfo } from "./Ping";
 
-interface Idata {
-	pingData: TPingData
-}
-
-function PingInfo(data: Idata) {
-	return (
-		<div>
-			<div>Demo MODE: {data.pingData.demoMode ? "YES" : "NO"}</div>
-			<div>Server time: {data.pingData.serverTime}</div>
-		</div>
-	)
-}
 
 function App() {
 	const [count, setCount] = useState(0)
