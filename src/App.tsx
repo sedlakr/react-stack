@@ -18,7 +18,18 @@ function App() {
 		<div className="App">
 			<header className="App-header">
 				<img src={logo} className="App-logo" alt="logo"/>
-				<p>Hello from FE dev stack Vite + Typescript + React + Axios + Jest!</p>
+				<p>Hello from FE dev stack
+					<ul style={{listStyle: "none"}}>
+						<li>Yarn@3</li>
+						<li>Vite</li>
+						<li>Typescript</li>
+						<li>React</li>
+						<li>Storybook</li>
+						<li>Axios</li>
+						<li>Jest</li>
+						<li>Eslint</li>
+					</ul>
+				</p>
 				<p>
 					<button type="button" onClick={() => setCount((count) => count + 1)}>
 						count is: {count}
