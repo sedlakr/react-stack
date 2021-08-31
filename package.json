@@ -10,7 +10,7 @@
     "testCoverage": "jest --collect-coverage",
     "testJunitCoverage": "jest --reporters=jest-junit --collect-coverage",
     "testWatch": "jest --watch",
-    "lint": "eslint src/**/*.ts src/**/*.tsx",
+    "lint": "eslint src/**/*.ts src/**/*.tsx --fix",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook"
   },
