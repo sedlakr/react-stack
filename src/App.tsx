@@ -31,7 +31,7 @@ function App() {
         <Heading>
           Styled heading
         </Heading>
-        <p>
+        <div>
           Hello from FE dev stack
           <List>
             <li>Yarn@3</li>
@@ -45,7 +45,7 @@ function App() {
             <li>Prettier</li>
             <li>Styled components</li>
           </List>
-        </p>
+        </div>
         <p>
           <button type="button" onClick={() => setCount((count) => count + 1)}>
             count is: {count}
