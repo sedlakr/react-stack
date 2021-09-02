@@ -1,8 +1,19 @@
-import React, { useEffect, useState } from "react";
-import logo from "./logo.svg";
-import "./App.css";
-import { fetchPing, TPingData } from "./model/ping";
-import { PingInfo } from "./Ping";
+import React, {useEffect, useState} from 'react';
+import logo from './logo.svg';
+import './App.css';
+import {fetchPing, TPingData} from './model/ping';
+import {PingInfo} from './Ping';
+import styled from 'styled-components';
+
+const Heading = styled.h1`
+  font-size: 1.5em;
+  text-align: center;
+  color: palevioletred;
+
+`;
+const List = styled.ul`
+  list-style: decimal;
+`;
 
 function App() {
   const [count, setCount] = useState(0);
@@ -16,10 +27,13 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
+        <img src={logo} className="App-logo" alt="logo"/>
+        <Heading>
+          Styled heading
+        </Heading>
         <p>
           Hello from FE dev stack
-          <ul style={{ listStyle: "none" }}>
+          <List>
             <li>Yarn@3</li>
             <li>Vite</li>
             <li>Typescript</li>
@@ -28,7 +42,9 @@ function App() {
             <li>Axios</li>
             <li>Jest</li>
             <li>Eslint</li>
-          </ul>
+            <li>Prettier</li>
+            <li>Styled components</li>
+          </List>
         </p>
         <p>
           <button type="button" onClick={() => setCount((count) => count + 1)}>
@@ -36,7 +52,7 @@ function App() {
           </button>
         </p>
         <p>Ping info</p>
-        {pingData ? <PingInfo pingData={pingData} /> : "no data"}
+        {pingData ? <PingInfo pingData={pingData}/> : 'no data'}
         <p>
           <a
             className="App-link"
@@ -46,7 +62,7 @@ function App() {
           >
             Learn React
           </a>
-          {" | "}
+          {' | '}
           <a
             className="App-link"
             href="https://vitejs.dev/guide/features.html"

@@ -1,9 +1,9 @@
 // source
 // https://raw.githubusercontent.com/facebook/create-react-app/main/packages/react-scripts/lib/react-app.d.ts
 
-/// <reference types="node" />
-/// <reference types="react" />
-/// <reference types="react-dom" />
+// / <reference types="node" />
+// / <reference types="react" />
+// / <reference types="react-dom" />
 
 declare namespace NodeJS {
   interface ProcessEnv {

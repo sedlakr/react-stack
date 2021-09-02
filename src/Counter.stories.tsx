@@ -19,3 +19,9 @@ Primary.args = {
   size: "SMALL",
   unit: "EUR",
 };
+
+export const Secondary = Template.bind({});
+Secondary.args = {
+  size: 'LARGE',
+  unit: 'CZK',
+};
