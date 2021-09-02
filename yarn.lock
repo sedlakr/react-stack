@@ -2231,6 +2231,7 @@ __metadata:
     babel-loader: ^8.2.2
     eslint: ^7.32.0
     eslint-config-google: ^0.14.0
+    eslint-config-prettier: ^8.3.0
     eslint-plugin-react: ^7.25.1
     jest: ^27.1.0
     jest-junit: ^12.2.0
@@ -6948,6 +6949,17 @@ __metadata:
   peerDependencies:
     eslint: ">=5.16.0"
   checksum: 52ad84c0df2d33703024e5b7fd73a9a1b2a87413d25cee1826c891b3f8fba89f9188f3c5ed6d57b4315851c6a3c82847cc9f6c747278bf4395341f9ad79ed0d0
+  languageName: node
+  linkType: hard
+
+"eslint-config-prettier@npm:^8.3.0":
+  version: 8.3.0
+  resolution: "eslint-config-prettier@npm:8.3.0"
+  peerDependencies:
+    eslint: ">=7.0.0"
+  bin:
+    eslint-config-prettier: bin/cli.js
+  checksum: df4cea3032671995bb5ab07e016169072f7fa59f44a53251664d9ca60951b66cdc872683b5c6a3729c91497c11490ca44a79654b395dd6756beb0c3903a37196
   languageName: node
   linkType: hard
 
