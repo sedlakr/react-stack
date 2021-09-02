@@ -2231,9 +2231,12 @@ __metadata:
     babel-loader: ^8.2.2
     eslint: ^7.32.0
     eslint-config-google: ^0.14.0
+    eslint-config-prettier: ^8.3.0
     eslint-plugin-react: ^7.25.1
     jest: ^27.1.0
     jest-junit: ^12.2.0
+    jest-transform-stub: ^1.0.0
+    prettier: ^2.3.2
     react: ^17.0.0
     react-dom: ^17.0.0
     ts-jest: ^27.0.5
@@ -6949,6 +6952,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"eslint-config-prettier@npm:^8.3.0":
+  version: 8.3.0
+  resolution: "eslint-config-prettier@npm:8.3.0"
+  peerDependencies:
+    eslint: ">=7.0.0"
+  bin:
+    eslint-config-prettier: bin/cli.js
+  checksum: df4cea3032671995bb5ab07e016169072f7fa59f44a53251664d9ca60951b66cdc872683b5c6a3729c91497c11490ca44a79654b395dd6756beb0c3903a37196
+  languageName: node
+  linkType: hard
+
 "eslint-plugin-react@npm:^7.25.1":
   version: 7.25.1
   resolution: "eslint-plugin-react@npm:7.25.1"
@@ -9824,6 +9838,13 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
+"jest-transform-stub@npm:^1.0.0":
+  version: 1.0.0
+  resolution: "jest-transform-stub@npm:1.0.0"
+  checksum: 22489511ace159dfa1e1be784273a142eec2b195ed185b23f10a8d78c860a2a637e6992c780818b9fa16e9d7337a6e32b44354f0136f1c7a7a4f74e45540abe2
+  languageName: node
+  linkType: hard
+
 "jest-util@npm:^26.6.2":
   version: 26.6.2
   resolution: "jest-util@npm:26.6.2"
@@ -11921,6 +11942,15 @@ fsevents@^1.2.7:
   version: 1.1.2
   resolution: "prelude-ls@npm:1.1.2"
   checksum: c4867c87488e4a0c233e158e4d0d5565b609b105d75e4c05dc760840475f06b731332eb93cc8c9cecb840aa8ec323ca3c9a56ad7820ad2e63f0261dadcb154e4
+  languageName: node
+  linkType: hard
+
+"prettier@npm:^2.3.2":
+  version: 2.3.2
+  resolution: "prettier@npm:2.3.2"
+  bin:
+    prettier: bin-prettier.js
+  checksum: 17ce5784ac67621c292df58e2da60b2ee150c2d6aebea22a6ad9e52fcd6a5e66c349d0a8436ea3bd8ff9d778920a5f68000d7625b74f43558718a49755aa5259
   languageName: node
   linkType: hard
 

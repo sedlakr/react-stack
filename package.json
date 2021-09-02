@@ -36,10 +36,12 @@
     "babel-loader": "^8.2.2",
     "eslint": "^7.32.0",
     "eslint-config-google": "^0.14.0",
+    "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-react": "^7.25.1",
     "jest": "^27.1.0",
     "jest-junit": "^12.2.0",
     "jest-transform-stub": "^1.0.0",
+    "prettier": "^2.3.2",
     "ts-jest": "^27.0.5",
     "typescript": "^4.3.2",
     "vite": "^2.4.4"
