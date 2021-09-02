@@ -6,6 +6,7 @@
     "build": "tsc && vite build",
     "serve": "vite preview",
     "test": "jest",
+    "tswatch" : "tsc --watch",
     "testJunit": "jest --reporters=jest-junit",
     "testCoverage": "jest --collect-coverage",
     "testJunitCoverage": "jest --reporters=jest-junit --collect-coverage",
