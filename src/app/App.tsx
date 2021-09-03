@@ -29,7 +29,7 @@ function App() {
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo"/>
         <Heading>
-          Styled heading
+          Styled dddd
         </Heading>
         <div>
           Hello from FE dev stack
