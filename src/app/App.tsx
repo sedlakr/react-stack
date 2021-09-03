@@ -4,6 +4,7 @@ import './App.css';
 import {fetchPing, TPingData} from './model/ping';
 import {PingInfo} from './Ping';
 import styled from 'styled-components';
+import {Checkbox} from '../vendor/ui/components/inputs/checkbox';
 
 const Heading = styled.h1`
   font-size: 1.5em;
@@ -31,6 +32,7 @@ function App() {
         <Heading>
           Styled dddd
         </Heading>
+        <Checkbox isChecked={true}/>
         <div>
           Hello from FE dev stack
           <List>
