@@ -24,6 +24,9 @@
   "resolutions": {
     "styled-components": "^5"
   },
+  "workspaces": [
+    "src/*"
+  ],
   "devDependencies": {
     "@babel/core": "^7.15.0",
     "@storybook/addon-actions": "^6.3.7",

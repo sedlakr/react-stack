@@ -4400,6 +4400,14 @@ __metadata:
   languageName: node
   linkType: hard
 
+"app@workspace:src/app":
+  version: 0.0.0-use.local
+  resolution: "app@workspace:src/app"
+  dependencies:
+    react-stack-framework: "*"
+  languageName: unknown
+  linkType: soft
+
 "aproba@npm:^1.0.3, aproba@npm:^1.1.1":
   version: 1.2.0
   resolution: "aproba@npm:1.2.0"
@@ -12581,6 +12589,12 @@ fsevents@^1.2.7:
   checksum: 97cb852c24bbd50acb310da89df564e0d069415f6635676dae3d3bdc583ece88090c0f2ee88a6b0dc36d2793af4a11e83bf6bbb41b86225dd0cf338e8f7e8552
   languageName: node
   linkType: hard
+
+"react-stack-framework@*, react-stack-framework@workspace:src/vendor":
+  version: 0.0.0-use.local
+  resolution: "react-stack-framework@workspace:src/vendor"
+  languageName: unknown
+  linkType: soft
 
 "react-syntax-highlighter@npm:^13.5.3":
   version: 13.5.3

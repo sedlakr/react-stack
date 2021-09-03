@@ -4,7 +4,7 @@ import './App.css';
 import {fetchPing, TPingData} from './model/ping';
 import {PingInfo} from './Ping';
 import styled from 'styled-components';
-import {Checkbox} from '../vendor/ui/components/inputs/checkbox';
+import {Checkbox} from 'react-stack-framework/ui/components/inputs/checkbox';
 
 const Heading = styled.h1`
   font-size: 1.5em;
