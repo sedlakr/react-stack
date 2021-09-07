@@ -23,7 +23,8 @@ Simple repository to demonstrate FrontEnd stack with:
   - https://plugins.jetbrains.com/plugin/9997-styled-components--styled-jsx
 - Prettier
   - https://prettier.io/
-
+- MobX
+  - https://mobx.js.org/
 1. ``yarn install``
 2. ``dev``
 3. ``test``

@@ -1,6 +1,7 @@
 import { useState } from "react";
 import React from "react";
 import Code from "./assets/code-brackets.svg";
+import {assertNever} from 'react-stack-framework/utils/assert';
 export enum Operation {
   Add,
 }
@@ -12,10 +13,6 @@ export function count(a: number, b: number, op: Operation): number {
     default:
       assertNever(op);
   }
-}
-
-export function assertNever(val: never): never {
-  throw new Error("value should be never");
 }
 
 export interface CounterProps {

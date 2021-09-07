@@ -5,6 +5,11 @@ import {fetchPing, TPingData} from './model/ping';
 import {PingInfo} from './Ping';
 import styled from 'styled-components';
 import {Checkbox} from 'react-stack-framework/ui/components/inputs/checkbox';
+import {Button} from 'react-stack-framework/ui/components/inputs/button';
+import {
+  getThemeObserver,
+  ThemeProviderObserver,
+} from 'react-stack-framework/ui/theme/theme';
 
 const Heading = styled.h1`
   font-size: 1.5em;
@@ -13,10 +18,27 @@ const Heading = styled.h1`
 
 `;
 const List = styled.ul`
-  list-style: decimal;
+  list-style: disc;
+  font-size: 15px;
 `;
 
 function App() {
+  const theme = getThemeObserver();
+
+  return (
+    <ThemeProviderObserver theme={theme}>
+      <AppInner/>
+    </ThemeProviderObserver>
+  );
+}
+const AppWrapper = styled.div`
+    background: ${props => {
+      console.log(props.theme);
+      return props.theme.backgroundColor
+    }};
+`;
+
+function AppInner() {
   const [count, setCount] = useState(0);
   const [pingData, setPingData] = useState<TPingData | null>(null);
 
@@ -25,14 +47,16 @@ function App() {
       setPingData(data);
     });
   }, []);
+
   return (
-    <div className="App">
+    <AppWrapper>
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo"/>
         <Heading>
           Styled dddd
         </Heading>
         <Checkbox isChecked={true}/>
+        <Button/>
         <div>
           Hello from FE dev stack
           <List>
@@ -46,10 +70,12 @@ function App() {
             <li>Eslint</li>
             <li>Prettier</li>
             <li>Styled components</li>
+            <li>Mobx</li>
           </List>
         </div>
         <p>
-          <button type="button" onClick={() => setCount((count) => count + 1)}>
+          <button type="button"
+                  onClick={() => setCount((count) => count + 1)}>
             count is: {count}
           </button>
         </p>
@@ -75,7 +101,7 @@ function App() {
           </a>
         </p>
       </header>
-    </div>
+    </AppWrapper>
   );
 }
 
