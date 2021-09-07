@@ -31,11 +31,9 @@ function App() {
     </ThemeProviderObserver>
   );
 }
+
 const AppWrapper = styled.div`
-    background: ${props => {
-      console.log(props.theme);
-      return props.theme.backgroundColor
-    }};
+  background: ${props => props.theme.backgroundColor};
 `;
 
 function AppInner() {
