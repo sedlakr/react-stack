@@ -9,7 +9,7 @@ export function Checkbox({isChecked = false}: CheckboxProps) {
   return (
     <>
       <input type={'checkbox'} checked={checked}
-             onClick={() => setChecked(!checked)}/>
+             onChange={() => setChecked(!checked)}/>
       {checked ? <div>checked</div> : <div>not checked</div>}
     </>
   );
