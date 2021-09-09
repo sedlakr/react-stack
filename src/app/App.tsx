@@ -11,6 +11,10 @@ import {
   ThemeProviderObserver,
 } from 'react-stack-framework/ui/theme/theme';
 
+// import i18n (needs to be bundled ;))
+import 'react-stack-framework/i18n/i18n';
+import {useTranslation} from 'react-i18next';
+
 const Heading = styled.h1`
   font-size: 1.5em;
   text-align: center;
@@ -36,6 +40,27 @@ const AppWrapper = styled.div`
   background: ${props => props.theme.backgroundColor};
 `;
 
+
+function TranslatedText() {
+  const {t, i18n} = useTranslation();
+
+  return (
+    <>
+      <div>{t('Welcome to React')}</div>
+      <div>Current language : {i18n.language}
+        <button style={{marginLeft: '10px'}} onClick={() => {
+          if (i18n.language === 'en') {
+            i18n.changeLanguage('fr');
+          } else {
+            i18n.changeLanguage('en');
+          }
+        }}> click to change language
+        </button>
+      </div>
+    </>
+  );
+}
+
 function AppInner() {
   const [count, setCount] = useState(0);
   const [pingData, setPingData] = useState<TPingData | null>(null);
@@ -53,6 +78,7 @@ function AppInner() {
         <Heading>
           Styled dddd
         </Heading>
+        <TranslatedText/>
         <Checkbox isChecked={true}/>
         <Button/>
         <div>

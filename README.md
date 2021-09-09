@@ -25,6 +25,9 @@ Simple repository to demonstrate FrontEnd stack with:
   - https://prettier.io/
 - MobX
   - https://mobx.js.org/
+- React-i18next
+  - https://react.i18next.com/
+
 1. ``yarn install``
 2. ``dev``
 3. ``test``
