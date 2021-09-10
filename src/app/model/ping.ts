@@ -13,14 +13,21 @@ export type TPingData = {
 };
 
 export async function fetchPing(): Promise<TPingData> {
-  return mock;
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      mock.serverTime = Date.now()
+      resolve(mock);
+
+    }, 1500);
+  });
+
   // const url = 'http://localhost:15062/interactive/api/ping';
   // const response = await axios.get<TPingData>(url);
   //
   // return response.data;
 }
 
-const mock: TPingData = {
+let mock: TPingData = {
   demoMode: false,
   enableCookiesInfo: false,
   enableFulltextSearch: false,

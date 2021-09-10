@@ -21,7 +21,7 @@ export const ThemeInfo = observer(() => {
   return (
     <ThemeInfoDiv>Theme:
       <ThemeVal onClick={() => theme.setNextTheme()}>
-        {theme.currentTheme}
+        {theme.currentThemeId}
       </ThemeVal>
     </ThemeInfoDiv>);
 });

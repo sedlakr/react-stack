@@ -4,6 +4,7 @@ import logo from '../../logo.svg';
 import styled from 'styled-components';
 import {useTranslation} from 'react-i18next';
 import {ThemeInfo} from '../components/header/themeInfo';
+import {AppStyledProps, IAppThemeStyles} from '../theme';
 
 const Logo = styled.img`
   height: 60px;
@@ -15,7 +16,7 @@ const Logo = styled.img`
 const HeaderDiv = styled.div`
   border-bottom: 1px solid #333333;
   max-height: 60px;
-  background: #323232;
+  background: ${(props: AppStyledProps) => props.theme.color.headerBackground};
   justify-content: space-between;
   display: flex;
   align-items: center;

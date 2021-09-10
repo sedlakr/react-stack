@@ -1,22 +1,37 @@
 import {makeAutoObservable} from 'mobx';
-import {Theme, themes} from './themesDef';
+import {Themes} from './theme';
 
-export class ThemeInfo {
-  currentTheme: Theme = Theme.Default;
-  currentThemeConfig = themes[this.currentTheme];
+export type ThemeId = string;
 
-  constructor() {
+export interface ITheme<TThemeStyles> {
+  id: ThemeId;
+  styles: TThemeStyles;
+}
+
+export class ThemeInfo<TThemeStyles> {
+  currentThemeId!: ThemeId;
+  currentTheme!: ITheme<TThemeStyles>;
+  private readonly themes: Themes;
+
+  constructor(themes: Themes, preselectThemeId: ThemeId) {
     makeAutoObservable(this);
+    this.themes = themes;
+    this.setCurrentTheme(preselectThemeId);
   }
 
-  setCurrentTheme(theme: Theme) {
+  setCurrentTheme(themeId: ThemeId) {
+    this.currentThemeId = themeId;
+    const theme = this.themes[themeId];
+    if (!theme) {
+      throw  new Error(`Theme with id${themeId} not found!`);
+    }
     this.currentTheme = theme;
-    this.currentThemeConfig = themes[theme];
   }
 
   setNextTheme() {
-    const keys = Object.keys(themes) as Theme[];
-    const currentIndex = keys.indexOf(this.currentTheme);
+    const themes = this.themes;
+    const keys = Object.keys(themes) as ThemeId[];
+    const currentIndex = keys.indexOf(this.currentThemeId);
     const nextKey = keys[(currentIndex + 1) % keys.length];
     this.setCurrentTheme(nextKey);
   }

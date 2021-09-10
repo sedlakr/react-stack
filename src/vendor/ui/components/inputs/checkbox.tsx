@@ -1,16 +1,28 @@
 import React, {useState} from 'react';
+import styled from 'styled-components';
 
 export interface CheckboxProps {
   isChecked?: boolean;
 }
 
+const Input = styled.input`
+  display: inline-block;
+  margin-right: 20px;
+`;
+const Inline = styled.div`
+  display: inline-block;
+
+`;
+
 export function Checkbox({isChecked = false}: CheckboxProps) {
   const [checked, setChecked] = useState(isChecked);
   return (
-    <>
-      <input type={'checkbox'} checked={checked}
+    <div>
+      <Input type={'checkbox'} checked={checked}
              onChange={() => setChecked(!checked)}/>
-      {checked ? <div>checked</div> : <div>not checked</div>}
-    </>
+      <Inline onClick={() => setChecked(!checked)}>
+        {checked ? 'checked' : 'not checked'}
+      </Inline>
+    </div>
   );
 }

@@ -6,33 +6,42 @@ import React, {
 } from 'react';
 import {observer} from 'mobx-react';
 import {ThemeProvider} from 'styled-components';
-import {ThemeInfo} from './themeInfo';
-export type {ITheme} from './themesDef';
+import {ITheme, ThemeId, ThemeInfo} from './themeInfo';
+import {IAppThemeStyles} from 'app/ui/theme';
 
 const ThemeProviderObserver = observer(({children}: PropsWithChildren<unknown>) => {
   const theme = useThemeProvider();
   return (
     <ThemeProvider
-      theme={theme.currentThemeConfig}>
+      theme={theme.currentTheme.styles as IAppThemeStyles}>
       {children}
     </ThemeProvider>
   );
 });
 
-const ThemeProviderContext = createContext<ThemeInfo | null>(null);
+const ThemeProviderContext = createContext<ThemeInfo<unknown> | null>(null);
 
 /**
  * @description Return @observable theme provider with current info about UI theme<br/>
  * <b>NOTE</b>: component which uses this provider <b>MUST</b> be wrapped with @observable
  */
-export function useThemeProvider(): ThemeInfo {
+export function useThemeProvider<TThemeStyles>(): ThemeInfo<TThemeStyles> {
   const provider = useContext(ThemeProviderContext);
 
   if (!provider) {
     throw new Error('Context provider is not defined.');
   }
-  return provider;
+  return provider as ThemeInfo<TThemeStyles>;
 }
+
+export type Themes = {
+  [key in ThemeId]: ITheme<any>;
+};
+
+type WithThemesProps = {
+  selectedThemeId: ThemeId;
+  themes: Themes;
+} & PropsWithChildren<unknown>
 
 /**
  * HOC to provide Theme mechanism via ThemeProvider
@@ -48,8 +57,12 @@ export function useThemeProvider(): ThemeInfo {
  * );
  *
  */
-export function WithTheme({children}: PropsWithChildren<unknown>) {
-  const provider = useMemo<ThemeInfo>(() => new ThemeInfo(), []);
+export function WithThemes({
+  themes,
+  selectedThemeId,
+  children,
+}: WithThemesProps) {
+  const provider = useMemo<ThemeInfo<{}>>(() => new ThemeInfo(themes, selectedThemeId), []);
 
   return <ThemeProviderContext.Provider
     value={provider}>
