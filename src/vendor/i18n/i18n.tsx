@@ -24,12 +24,15 @@ export function getI18nObserver() {
 const resources = {
   en: {
     translation: {
+      "Language": "Language",
       'Welcome to React': 'Welcome to React and react-i18next',
     },
   },
-  fr: {
+  cz: {
     translation: {
-      'Welcome to React': 'Bienvenue à React et react-i18next',
+      "Language": "Jazyk",
+      'Welcome to React': 'Vítejte v Reactu a react-i18next',
+      'React FE stack demonstration project': 'React FE stack demonstrační projekt',
     },
   },
 };
