@@ -1,4 +1,4 @@
-import React, {Component, ReactElement, useEffect, useState} from 'react';
+import React, {ReactElement, useEffect, useState} from 'react';
 import './App.css';
 import {fetchPing, TPingData} from './model/ping';
 import {PingInfo} from './Ping';
@@ -6,8 +6,7 @@ import styled from 'styled-components';
 import {Checkbox} from 'react-stack-framework/ui/components/inputs/checkbox';
 import {Button} from 'react-stack-framework/ui/components/inputs/button';
 import {
-  getThemeObserver,
-  ThemeProviderObserver,
+  WithTheme,
 } from 'react-stack-framework/ui/theme/theme';
 
 // import i18n (needs to be bundled ;))
@@ -27,12 +26,10 @@ const List = styled.ul`
 `;
 
 function App() {
-  const theme = getThemeObserver();
-
   return (
-    <ThemeProviderObserver theme={theme}>
+    <WithTheme>
       <AppInner/>
-    </ThemeProviderObserver>
+    </WithTheme>
   );
 }
 
@@ -82,7 +79,7 @@ function AppInner() {
             </Heading>
             <TranslatedText/>
             <Checkbox isChecked={true}/>
-            <Button/>
+            <Button text={'My pretty button'} onClick={() => alert('clicked')}/>
             <div>
               Hello from FE dev stack
               <List>

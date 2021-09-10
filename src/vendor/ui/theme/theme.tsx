@@ -1,53 +1,60 @@
-import {makeAutoObservable} from 'mobx';
-import React from 'react';
+import React, {
+  createContext,
+  PropsWithChildren,
+  useContext,
+  useMemo,
+} from 'react';
 import {observer} from 'mobx-react';
 import {ThemeProvider} from 'styled-components';
+import {ThemeInfo} from './themeInfo';
+export type {ITheme} from './themesDef';
 
-export enum Theme {
-  Default = 'Default',
-  Rose = 'Rose'
-}
+const ThemeProviderObserver = observer(({children}: PropsWithChildren<unknown>) => {
+  const theme = useThemeProvider();
+  return (
+    <ThemeProvider
+      theme={theme.currentThemeConfig}>
+      {children}
+    </ThemeProvider>
+  );
+});
 
-export interface ITheme {
-  color: string;
-  backgroundColor: string;
-}
+const ThemeProviderContext = createContext<ThemeInfo | null>(null);
 
-const themeDefault: ITheme = {
-  color: 'blue',
-  backgroundColor: '#5d5c5c',
-};
-const themeRose: ITheme = {
-  color: '#6b084f',
-  backgroundColor: 'rgba(74,20,80,0.73)',
-};
+/**
+ * @description Return @observable theme provider with current info about UI theme<br/>
+ * <b>NOTE</b>: component which uses this provider <b>MUST</b> be wrapped with @observable
+ */
+export function useThemeProvider(): ThemeInfo {
+  const provider = useContext(ThemeProviderContext);
 
-const themes = {
-  [Theme.Default]: themeDefault,
-  [Theme.Rose]: themeRose,
-};
-
-export class ThemeObserver {
-  currentTheme: Theme = Theme.Default;
-  currentThemeConfig = themes[this.currentTheme];
-
-  constructor() {
-    makeAutoObservable(this);
+  if (!provider) {
+    throw new Error('Context provider is not defined.');
   }
-
-  setCurrentTheme(theme: Theme) {
-    this.currentTheme = theme;
-    this.currentThemeConfig = themes[theme];
-  }
+  return provider;
 }
 
-let themeObserver = new ThemeObserver();
+/**
+ * HOC to provide Theme mechanism via ThemeProvider
+ * @description Use it in top level of application to propagate Theme mechanism to whole application
+ * e.g.
+ * ReactDOM.render(
+ *   <React.StrictMode>
+ *     <WithTheme>
+ *       <App/>
+ *     </WithTheme>
+ *   </React.StrictMode>,
+ *   document.getElementById("root")
+ * );
+ *
+ */
+export function WithTheme({children}: PropsWithChildren<unknown>) {
+  const provider = useMemo<ThemeInfo>(() => new ThemeInfo(), []);
 
-export function getThemeObserver() {
-  return themeObserver;
+  return <ThemeProviderContext.Provider
+    value={provider}>
+    <ThemeProviderObserver>
+      {children}
+    </ThemeProviderObserver>
+  </ThemeProviderContext.Provider>;
 }
-
-export const ThemeProviderObserver = observer(
-  ({theme, children}: { theme: ThemeObserver, children: any }) =>
-    <ThemeProvider theme={theme.currentThemeConfig}>{children}</ThemeProvider>,
-);

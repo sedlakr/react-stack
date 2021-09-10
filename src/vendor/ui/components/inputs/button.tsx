@@ -1,13 +1,12 @@
 import * as React from 'react';
-import {useState} from 'react';
 import styled, {ThemedStyledProps} from 'styled-components';
-import {getThemeObserver, ITheme, Theme} from '../../theme/theme';
+import {ITheme} from '../../theme/theme';
 // Define our button, but with the use of props.theme this time
 
-type Props = ThemedStyledProps<{}, ITheme>;
+type StyleProps = ThemedStyledProps<{}, ITheme>;
 const ButtonElem = styled.button`
-  color: ${(props: Props) => props.theme.color};
-  border: 2px solid ${(props: Props) => props.theme.color};
+  color: ${(props: StyleProps) => props.theme.color};
+  border: 2px solid ${(props: StyleProps) => props.theme.color};
   background: ${props => props.theme.bg};
 
   font-size: 1em;
@@ -16,14 +15,14 @@ const ButtonElem = styled.button`
   border-radius: 3px;
 `;
 
-export function Button() {
-  const theme = getThemeObserver();
-  let info = 'Click me to change theme! + Current: ';
-  const [text, setText] = useState(info + theme.currentTheme);
+interface Props {
+  text: string;
+
+  onClick(): void;
+}
+
+export function Button({text, onClick}: Props) {
   return (
-    <ButtonElem onClick={() => {
-      theme.setCurrentTheme(theme.currentTheme === Theme.Rose ? Theme.Default : Theme.Rose);
-      setText(info + theme.currentTheme);
-    }}>{text} </ButtonElem>
+    <ButtonElem onClick={onClick}>{text} </ButtonElem>
   );
 }

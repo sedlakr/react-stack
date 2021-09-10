@@ -1,14 +1,9 @@
 import * as React from 'react';
-import {PropsWithChildren} from 'react';
 import {LanguageSwitcher} from './languageSwitcher';
 import logo from '../../logo.svg';
 import styled from 'styled-components';
 import {useTranslation} from 'react-i18next';
-import {
-  getThemeObserver,
-  ThemeObserver,
-} from 'react-stack-framework/ui/theme/theme';
-import {observer} from 'mobx-react';
+import {ThemeInfo} from '../components/header/themeInfo';
 
 const Logo = styled.img`
   height: 60px;
@@ -36,28 +31,16 @@ const Title = styled.div`
 const RightInfo = styled.div`
   display: flex;
 `;
-const Theme = styled.div`
-  display: flex;
-  margin-right: 20px;
-  color: white;
-  align-items: center;
-`;
-const ThemeVal = styled.span`
-  color: #d2b4b4;
-  margin-left: 5px;
-`;
 
 export function Header() {
   const {t} = useTranslation();
-  const theme = getThemeObserver();
 
   return (
     <HeaderDiv>
       <Logo src={logo} alt="logo"/>
       <Title>{t('React FE stack demonstration project')}</Title>
       <RightInfo>
-        <ThemeInfo theme={theme}>
-        </ThemeInfo>
+        <ThemeInfo/>
         <LangSwitchWrapper>
           <LanguageSwitcher languages={['en', 'cz']}/>
         </LangSwitchWrapper>
@@ -65,11 +48,3 @@ export function Header() {
     </HeaderDiv>
   );
 }
-
-const ThemeInfo = observer(({
-  theme,
-  children,
-}: PropsWithChildren<{ theme: ThemeObserver }>) => {
-  return (
-    <Theme>Theme: <ThemeVal>{theme.currentTheme}</ThemeVal>{children}</Theme>);
-});
