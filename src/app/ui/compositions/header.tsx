@@ -43,7 +43,7 @@ export function Header() {
       <RightInfo>
         <ThemeInfo/>
         <LangSwitchWrapper>
-          <LanguageSwitcher languages={['en', 'cz']}/>
+          <LanguageSwitcher />
         </LangSwitchWrapper>
       </RightInfo>
     </HeaderDiv>

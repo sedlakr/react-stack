@@ -2,10 +2,7 @@ import * as React from 'react';
 import {Language} from '../components/language';
 import styled from 'styled-components';
 import {useTranslation} from 'react-i18next';
-
-export interface IFlagListProps {
-  languages: string[];
-}
+import {useTranslationProvider} from 'react-stack-framework/i18n/translationProvider';
 
 const LanguageItemWrapper = styled.div`
   display: inline-block;
@@ -26,16 +23,18 @@ const LanguageSwitcherDiv = styled.div`
   display: inline-block;
 `;
 
-export function LanguageSwitcher({languages}: IFlagListProps) {
+export function LanguageSwitcher() {
   const {t} = useTranslation();
+  const translationProvider = useTranslationProvider();
+
   return (
     <LanguageSwitcherDiv>
       <LanguageInfo>{t('Language')}:</LanguageInfo>
-      {languages.map(state =>
+      {translationProvider.initialized ? translationProvider.availableTranslations.map(state =>
         <LanguageItemWrapper key={state}>
-          <Language languageId={state}/>
+          <Language translationId={state}/>
         </LanguageItemWrapper>,
-      )}
+      ) : <>...</>}
     </LanguageSwitcherDiv>
   );
 }

@@ -1,6 +1,10 @@
 import styled from 'styled-components';
 import * as React from 'react';
 import {useTranslation} from 'react-i18next';
+import {
+  TranslationId,
+  useTranslationProvider,
+} from 'react-stack-framework/i18n/translationProvider';
 
 const LanguageDiv = styled.div<StyleProps>`
   border: 1px solid black;
@@ -25,15 +29,18 @@ interface StyleProps {
 }
 
 export interface Props {
-  languageId: string;
+  translationId: TranslationId;
 }
 
-export function Language({languageId}: Props) {
-  const {t, i18n} = useTranslation();
+export function Language({translationId}: Props) {
+  const {i18n} = useTranslation();
+  const translationsProvider = useTranslationProvider();
 
   return (
-    <LanguageDiv selected={i18n.language === languageId} onClick={() => {
-      i18n.changeLanguage(languageId);
-    }}>{languageId}</LanguageDiv>
+    <LanguageDiv
+      selected={i18n.language === translationId}
+      onClick={async () => {
+        await translationsProvider.changeTranslation(translationId);
+      }}>{translationId}</LanguageDiv>
   );
 }

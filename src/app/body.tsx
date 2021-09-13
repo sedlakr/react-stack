@@ -45,6 +45,7 @@ const techs = [
 
 export function Body() {
   const [count, setCount] = useState(0);
+  const {t} = useTranslation();
   const [fetchInvalidate, setFetchInvalidate] = useState(0);
   const [pingData, setPingData] = useState<TPingData | null>(null);
 
@@ -58,7 +59,7 @@ export function Body() {
     <BodyDiv>
       <header className="App-header">
         <Heading>
-          Used technologies:
+          {t('Used technologies')}:
         </Heading>
         <TechnologyList>
           {techs.join(', ')}
