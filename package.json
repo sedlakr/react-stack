@@ -29,7 +29,8 @@
     "styled-components": "^5.3.3"
   },
   "resolutions": {
-    "styled-components": "^5"
+    "styled-components": "^5",
+    "@types/react": "^17.0.40"
   },
   "workspaces": [
     "src/*"
